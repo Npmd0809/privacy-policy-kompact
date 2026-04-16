@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy – TaskFlow</title>
+  <title>Privacy Policy – Kompact</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -63,15 +63,16 @@
     }
 
     .logo-icon {
-      width: 34px;
-      height: 34px;
-      background: rgba(255,255,255,0.2);
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.15);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255,255,255,0.25);
+      overflow: hidden;
     }
 
     .logo-icon svg { width: 20px; height: 20px; }
@@ -402,12 +403,8 @@
   <div class="header-inner">
     <a class="logo" href="#">
       <div class="logo-icon">
-        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="6" height="6" rx="1.5" fill="white"/>
-          <rect x="10" y="2" width="6" height="6" rx="1.5" fill="white" opacity="0.6"/>
-          <rect x="2" y="10" width="6" height="6" rx="1.5" fill="white" opacity="0.6"/>
-          <rect x="10" y="10" width="6" height="6" rx="1.5" fill="white" opacity="0.3"/>
-        </svg>
+        <!-- Thay "logo.svg" bằng đường dẫn tới file logo của bạn -->
+        <img src="logo.svg" alt="Kompact logo" style="width:28px;height:28px;object-fit:contain;" />
       </div>
       <span class="logo-name">Kompact</span>
     </a>
@@ -423,15 +420,15 @@
     <div class="hero-meta">
       <span>
         <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Effective Date: January 1, 2025
+        Effective Date: April 16, 2026
       </span>
       <span>
         <svg viewBox="0 0 14 14" fill="none"><path d="M7 1l1.5 4.5H13l-3.7 2.7 1.4 4.3L7 9.8l-3.7 2.7 1.4-4.3L1 5.5h4.5z" stroke="currentColor" stroke-width="1.2"/></svg>
-        Last Updated: January 1, 2025
+        Last Updated: April 16, 2026
       </span>
       <span>
         <svg viewBox="0 0 14 14" fill="none"><path d="M2 3h10M2 7h7M2 11h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Applies to Kompact iOS & Android Apps
+        Applies to Kompact Web, Mobile & Desktop Apps
       </span>
     </div>
   </div>
@@ -456,11 +453,8 @@
         <h2>Overview & Scope</h2>
       </div>
       <div class="section-body">
-        <p>This Privacy Policy ("Policy") describes how <strong>Kompact Inc.</strong> ("Kompact," "we," "us," or "our") collects, uses, stores, and discloses information about you when you use the Kompact mobile application and related services (collectively, the "Service") available on Apple App Store and Google Play.</p>
-        <p>By downloading or using Kompact, you agree to the practices described in this Policy. If you do not agree, please do not use the Service. This Policy applies to all users, including individual subscribers, team members, and workspace administrators.</p>
-        <div class="highlight-box">
-          <strong>Apple App Store compliance:</strong> This policy is provided to satisfy Apple App Store Review Guidelines §5.1 (Privacy) and fulfills requirements under App Store Connect privacy nutrition labels.
-        </div>
+        <p>This Privacy Policy ("Policy") describes how <strong>Kompact Inc.</strong> ("Kompact," "we," "us," or "our") collects, uses, stores, and discloses information about you when you use the Kompact web application, mobile applications (iOS & Android), Windows desktop application, and any related services (collectively, the "Service").</p>
+        <p>By accessing or using Kompact on any platform, you agree to the practices described in this Policy. If you do not agree, please do not use the Service. This Policy applies to all users, including individual subscribers, team members, and workspace administrators.</p>
       </div>
     </div>
 
@@ -523,7 +517,7 @@
         <h2>Internal Chat Feature</h2>
       </div>
       <div class="section-body">
-        <p>TaskFlow includes an <strong>Internal Team Chat</strong> feature designed for secure communication within your workspace. The following practices apply specifically to chat data:</p>
+        <p>Kompact includes an <strong>Internal Team Chat</strong> feature designed for secure communication within your workspace. The following practices apply specifically to chat data:</p>
 
         <h3>Message Storage</h3>
         <p>All messages are stored on our servers hosted on AWS in encrypted form. Messages are associated with your account and workspace, and are accessible to workspace administrators for compliance and moderation purposes.</p>
@@ -540,7 +534,7 @@
         </ul>
 
         <h3>Notifications</h3>
-        <p>We use push notification tokens to deliver message and mention alerts. Notification content may be displayed on your device's lock screen depending on your iOS/Android notification settings. We do not access notification content after delivery.</p>
+        <p>We use push notification tokens and browser/desktop notification APIs to deliver message and mention alerts across all platforms. Notification content may be displayed on your device's lock screen or system notification center depending on your platform settings. We do not access notification content after delivery.</p>
 
         <div class="highlight-box">
           <strong>Note for workspace members:</strong> Your employer (workspace owner) may have access to messages sent within the workspace for compliance, legal, or moderation purposes. Please review your organization's own communication policies.
@@ -557,8 +551,8 @@
       <div class="section-body">
         <p>We use the information we collect for the following purposes:</p>
         <ul class="icon-list">
-          <li><strong>Service Delivery:</strong> To create and manage your account, sync tasks across devices, deliver chat messages, and provide all core features of TaskFlow.</li>
-          <li><strong>Notifications:</strong> To send push notifications about task assignments, due dates, mentions, and chat messages.</li>
+          <li><strong>Service Delivery:</strong> To create and manage your account, sync tasks across all platforms (web, mobile, desktop), deliver chat messages, and provide all core features of Kompact.</li>
+          <li><strong>Notifications:</strong> To send push notifications, browser notifications, and desktop alerts about task assignments, due dates, mentions, and chat messages.</li>
           <li><strong>Customer Support:</strong> To respond to your requests, troubleshoot issues, and improve your experience.</li>
           <li><strong>Analytics & Improvement:</strong> To understand feature usage patterns, diagnose performance issues, and develop new functionality. Analytics data is aggregated and de-identified where possible.</li>
           <li><strong>Security & Fraud Prevention:</strong> To detect and prevent unauthorized access, abuse, or other harmful activity.</li>
@@ -584,14 +578,14 @@
           <span class="pill">Cloud hosting (AWS)</span>
           <span class="pill">Analytics (aggregated)</span>
           <span class="pill">Email delivery</span>
-          <span class="pill">Push notifications (APNs / FCM)</span>
+          <span class="pill">Push & desktop notifications</span>
           <span class="pill">Customer support tools</span>
           <span class="pill">Crash reporting</span>
         </div>
         <p>All sub-processors are bound by data processing agreements and may not use your data for their own purposes.</p>
 
         <h3>Workspace Administrators</h3>
-        <p>If you use TaskFlow through an employer-managed workspace, your workspace administrator has access to workspace data, including tasks assigned to you and messages sent in workspace channels, as permitted under our Business Terms.</p>
+        <p>If you use Kompact through an employer-managed workspace, your workspace administrator has access to workspace data, including tasks assigned to you and messages sent in workspace channels, as permitted under our Business Terms.</p>
 
         <h3>Legal Requirements</h3>
         <p>We may disclose information if required by law, court order, or governmental authority, or if we believe disclosure is necessary to protect our rights or the safety of our users.</p>
@@ -641,7 +635,7 @@
           <li>We conduct regular security audits and penetration testing.</li>
           <li>Incident response plans are in place for potential data breaches.</li>
         </ul>
-        <p>Despite our efforts, no method of transmission over the internet is 100% secure. If you believe your account has been compromised, please contact us immediately at <a href="mailto:security@kompact.app" style="color: var(--accent);">security@kompact.app</a>.</p>
+        <p>Despite our efforts, no method of transmission over the internet is 100% secure. If you believe your account has been compromised, please contact us immediately at <a href="mailto:erp.admin@ritavo.com" style="color: var(--accent);">erp.admin@ritavo.com</a>.</p>
       </div>
     </div>
 
@@ -660,9 +654,9 @@
           <li><strong>Data Portability:</strong> Export your tasks, projects, and account data in a machine-readable format.</li>
           <li><strong>Restrict Processing:</strong> Request that we limit how we use your data in certain circumstances.</li>
           <li><strong>Opt-out of Marketing:</strong> Unsubscribe from marketing emails at any time via the link in any email or in-app settings.</li>
-          <li><strong>Push Notifications:</strong> Disable push notifications at any time via your device's iOS/Android notification settings.</li>
+          <li><strong>Push & Desktop Notifications:</strong> Disable notifications at any time via your device or browser notification settings, or through the in-app notification preferences.</li>
         </ul>
-        <p>To exercise any of these rights, please visit your in-app <strong>Account Settings → Privacy</strong>, or contact us at <a href="mailto:privacy@kompact.app" style="color: var(--accent);">privacy@kompact.app</a>. We will respond within 30 days.</p>
+        <p>To exercise any of these rights, please visit your in-app <strong>Account Settings → Privacy</strong>, or contact us at <a href="mailto:erp.admin@ritavo.com" style="color: var(--accent);">erp.admin@ritavo.com</a>. We will respond within 30 days.</p>
         <p>If you are a resident of the European Economic Area (EEA), you also have the right to lodge a complaint with your local data protection authority.</p>
       </div>
     </div>
@@ -674,8 +668,8 @@
         <h2>Children's Privacy</h2>
       </div>
       <div class="section-body">
-        <p>TaskFlow is not directed to children under the age of 13 (or under the age of 16 in the European Economic Area). We do not knowingly collect personal information from children.</p>
-        <p>If we become aware that we have collected personal data from a child without verified parental consent, we will take steps to delete that information. If you believe a child has provided us with personal data, please contact us at <a href="mailto:privacy@kompact.app" style="color: var(--accent);">privacy@kompact.app</a>.</p>
+        <p>Kompact is not directed to children under the age of 13 (or under the age of 16 in the European Economic Area). We do not knowingly collect personal information from children.</p>
+        <p>If we become aware that we have collected personal data from a child without verified parental consent, we will take steps to delete that information. If you believe a child has provided us with personal data, please contact us at <a href="mailto:erp.admin@ritavo.com" style="color: var(--accent);">erp.admin@ritavo.com</a>.</p>
       </div>
     </div>
 
@@ -708,7 +702,7 @@
           <p class="contact-card-title">Kompact Inc. — Privacy Team</p>
           <div class="contact-row">
             <svg viewBox="0 0 15 15" fill="none"><path d="M1 4l6.5 4.5L14 4M1 3h13v9H1V3z" stroke="currentColor" stroke-width="1.2"/></svg>
-            <span>Email: <a href="mailto:privacy@kompact.app">privacy@kompact.app</a></span>
+            <span>Email: <a href="mailto:erp.admin@ritavo.com">erp.admin@ritavo.com</a></span>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7.5 4v4l2.5 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -716,14 +710,14 @@
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 15 15" fill="none"><path d="M2 2h11v11H2zM2 6h11M6 6v7" stroke="currentColor" stroke-width="1.2"/></svg>
-            <span>Mailing Address: 123 Innovation Drive, Suite 400, San Francisco, CA 94105, USA</span>
+            <span>Mailing Address: 327 Xa Lo Ha Noi, An Phu Ward, Ho Chi Minh City, Vietnam</span>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7.5 5v3h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-            <span>Website: <a href="https://www.kompact.app">www.kompact.app</a></span>
+            <span>Website: <a href="https://www.kompacthub.com">www.kompacthub.com</a></span>
           </div>
         </div>
-        <p style="margin-top: 16px;">For security vulnerabilities, please email <a href="mailto:security@kompact.app" style="color: var(--accent);">security@kompact.app</a> with detailed information. We take all security reports seriously.</p>
+        <p style="margin-top: 16px;">For security vulnerabilities, please email <a href="mailto:erp.admin@ritavo.com" style="color: var(--accent);">erp.admin@ritavo.com</a> with detailed information. We take all security reports seriously.</p>
       </div>
     </div>
 
