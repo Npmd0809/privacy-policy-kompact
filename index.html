@@ -37,12 +37,12 @@
 
     /* ── HEADER ── */
     header {
-      background: linear-gradient(135deg, var(--grad-top) 0%, var(--grad-mid) 60%, var(--grad-bottom) 100%);
-      border-bottom: none;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 20px rgba(15, 50, 152, 0.35);
+      box-shadow: 0 1px 12px rgba(15, 50, 152, 0.08);
     }
 
     .header-inner {
@@ -87,13 +87,12 @@
     .header-badge {
       font-size: 12px;
       font-weight: 500;
-      color: rgba(255,255,255,0.85);
-      background: rgba(255,255,255,0.15);
+      color: var(--accent);
+      background: var(--accent-light);
       padding: 4px 12px;
       border-radius: 20px;
       letter-spacing: 0.2px;
-      border: 1px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
     }
 
     /* ── HERO ── */
@@ -153,6 +152,7 @@
     .hero-meta {
       display: flex;
       gap: 24px;
+      margin-left: 24px;
       flex-wrap: wrap;
       font-size: 14px;
       color: rgba(255,255,255,0.65);
@@ -172,11 +172,120 @@
       gap: 48px;
       align-items: start;
       padding-top: 48px;
-      padding-bottom: 80px;
+      padding-bottom: 54px;
     }
 
-    /* ── CONTENT ── */
-    .content { min-width: 0; }
+    /* ── SCROLL PROGRESS BAR ── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--grad-top), var(--grad-bottom));
+      z-index: 999;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ── ANIMATE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-inner > * {
+      animation: fadeUp 0.7s ease both;
+      margin-left: 24px;
+    }
+    .hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.15s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.25s; }
+
+    .summary-box {
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    /* ── HERO FLOATING SHAPES ── */
+    .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-shape-1 {
+      width: 320px; height: 320px;
+      top: -100px; right: -80px;
+      background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
+    }
+    .hero-shape-2 {
+      width: 180px; height: 180px;
+      bottom: -60px; left: 5%;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    }
+    .hero-shape-3 {
+      width: 80px; height: 80px;
+      top: 30%; right: 18%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      transform: rotate(20deg);
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+    .hero-shape-4 {
+      width: 40px; height: 40px;
+      top: 15%; left: 40%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      transform: rotate(-12deg);
+      animation: floatSlow 8s ease-in-out infinite reverse;
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: rotate(20deg) translateY(0); }
+      50%       { transform: rotate(20deg) translateY(-12px); }
+    }
+
+    /* ── SECTION CARD HOVER ── */
+    .section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+    .section:hover {
+      box-shadow: 0 8px 32px rgba(26, 79, 214, 0.1);
+      border-color: #B0C4F8;
+      transform: translateY(-2px);
+    }
+    .section:last-child {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+
+    /* ── SECTION NUMBER ACCENT ── */
+    .section-num-large {
+      font-family: 'DM Serif Display', serif;
+      font-size: 13px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--grad-mid), var(--grad-bottom));
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 3px;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    /* ── DIVIDER BETWEEN SECTIONS (remove old border) ── */
+    .section { border-bottom: none !important; padding-bottom: 16px !important; margin-bottom: 16px !important; }
+
+
 
     /* SUMMARY BOX */
     .summary-box {
@@ -202,32 +311,12 @@
       line-height: 1.65;
     }
 
-    /* SECTIONS */
-    .section {
-      margin-bottom: 52px;
-      padding-bottom: 52px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
+    /* SECTIONS - base (overridden by card styles below) */
     .section-header {
       display: flex;
       align-items: flex-start;
       gap: 16px;
       margin-bottom: 20px;
-    }
-
-    .section-num-large {
-      font-family: 'DM Serif Display', serif;
-      font-size: 14px;
-      color: var(--section-num);
-      padding-top: 6px;
-      min-width: 28px;
-      font-style: italic;
     }
 
     h2 {
@@ -398,15 +487,14 @@
 </head>
 <body>
 
+<div id="progress-bar"></div>
+
 <!-- HEADER -->
 <header>
   <div class="header-inner">
     <a class="logo" href="#">
-      <div class="logo-icon">
-        <!-- Thay "logo.svg" bằng đường dẫn tới file logo của bạn -->
-        <img src="logo.svg" alt="Kompact logo" style="width:28px;height:28px;object-fit:contain;" />
-      </div>
-      <span class="logo-name">Kompact</span>
+      <!-- Thay "logo.svg" bằng đường dẫn tới file logo của bạn -->
+      <img src="logo.svg" alt="Kompact" style="height:32px;width:auto;object-fit:contain;" />
     </a>
     <span class="header-badge">Privacy Policy</span>
   </div>
@@ -414,17 +502,21 @@
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-shape hero-shape-1"></div>
+  <div class="hero-shape hero-shape-2"></div>
+  <div class="hero-shape hero-shape-3"></div>
+  <div class="hero-shape hero-shape-4"></div>
   <div class="hero-inner">
     <p class="hero-eyebrow">Legal Documentation</p>
     <h1>Privacy Policy</h1>
     <div class="hero-meta">
       <span>
         <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Effective Date: April 16, 2026
+        Effective Date: January 1, 2025
       </span>
       <span>
         <svg viewBox="0 0 14 14" fill="none"><path d="M7 1l1.5 4.5H13l-3.7 2.7 1.4 4.3L7 9.8l-3.7 2.7 1.4-4.3L1 5.5h4.5z" stroke="currentColor" stroke-width="1.2"/></svg>
-        Last Updated: April 16, 2026
+        Last Updated: January 1, 2025
       </span>
       <span>
         <svg viewBox="0 0 14 14" fill="none"><path d="M2 3h10M2 7h7M2 11h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -441,7 +533,7 @@
   <main class="content">
 
     <!-- SUMMARY -->
-    <div class="summary-box">
+    <div class="summary-box">   
       <p class="summary-box-title">📋 Plain-language summary</p>
       <p>Kompact is a task management application with built-in internal team chat. We collect only what is necessary to provide our service, never sell your personal data to third parties, and give you full control to export or delete your information at any time.</p>
     </div>
@@ -550,15 +642,44 @@
       </div>
       <div class="section-body">
         <p>We use the information we collect for the following purposes:</p>
-        <ul class="icon-list">
-          <li><strong>Service Delivery:</strong> To create and manage your account, sync tasks across all platforms (web, mobile, desktop), deliver chat messages, and provide all core features of Kompact.</li>
-          <li><strong>Notifications:</strong> To send push notifications, browser notifications, and desktop alerts about task assignments, due dates, mentions, and chat messages.</li>
-          <li><strong>Customer Support:</strong> To respond to your requests, troubleshoot issues, and improve your experience.</li>
-          <li><strong>Analytics & Improvement:</strong> To understand feature usage patterns, diagnose performance issues, and develop new functionality. Analytics data is aggregated and de-identified where possible.</li>
-          <li><strong>Security & Fraud Prevention:</strong> To detect and prevent unauthorized access, abuse, or other harmful activity.</li>
-          <li><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and legal processes.</li>
-          <li><strong>Communications:</strong> To send product updates, security alerts, and administrative messages. You may opt out of non-essential emails at any time.</li>
-        </ul>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Purpose</th>
+              <th>How It Is Used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Service Delivery</strong></td>
+              <td>Create and manage your account, sync tasks across web, mobile, and desktop, deliver chat messages, and provide core Kompact features.</td>
+            </tr>
+            <tr>
+              <td><strong>Notifications</strong></td>
+              <td>Send push notifications, browser notifications, and desktop alerts for task assignments, due dates, mentions, and chat updates.</td>
+            </tr>
+            <tr>
+              <td><strong>Customer Support</strong></td>
+              <td>Respond to support requests, troubleshoot issues, and improve your overall experience.</td>
+            </tr>
+            <tr>
+              <td><strong>Analytics & Improvement</strong></td>
+              <td>Understand feature usage, diagnose performance issues, and develop product enhancements using aggregated, de-identified data where possible.</td>
+            </tr>
+            <tr>
+              <td><strong>Security & Fraud Prevention</strong></td>
+              <td>Detect and prevent unauthorized access, abuse, and other harmful activity.</td>
+            </tr>
+            <tr>
+              <td><strong>Legal Compliance</strong></td>
+              <td>Comply with applicable laws, regulations, and legal processes.</td>
+            </tr>
+            <tr>
+              <td><strong>Communications</strong></td>
+              <td>Send product updates, security alerts, and administrative messages. You may opt out of non-essential emails at any time.</td>
+            </tr>
+          </tbody>
+        </table>
         <p>We do not use your task content or chat messages to train machine learning models or serve advertising.</p>
       </div>
     </div>
@@ -710,7 +831,7 @@
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 15 15" fill="none"><path d="M2 2h11v11H2zM2 6h11M6 6v7" stroke="currentColor" stroke-width="1.2"/></svg>
-            <span>Mailing Address: 327 Xa Lo Ha Noi, An Phu Ward, Ho Chi Minh City, Vietnam</span>
+            <span>Mailing Address: 327 Xa Lo ha noi, an khanh ward, ho chi minh city, vietnam</span>
           </div>
           <div class="contact-row">
             <svg viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7.5 5v3h3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -730,5 +851,13 @@
   <p><a href="#">Terms of Service</a> · <a href="#">Cookie Policy</a> · <a href="#">Data Processing Agreement</a></p>
 </footer>
 
+<script>
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrollTop / docHeight * 100) + '%';
+  });
+</script>
 </body>
 </html>
