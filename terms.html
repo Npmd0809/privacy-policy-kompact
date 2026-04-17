@@ -42,6 +42,9 @@
             --link: #3949ab;
             --chevron: #9fa8da;
             --card-hover: #f7f8ff;
+            --grad-top: #0F3298;
+            --grad-mid: #1A54D4;
+            --grad-bottom: #4A8FE8;
         }
 
         body {
@@ -91,7 +94,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-hero) 60%, #5c6bc0 100%);
+            background: linear-gradient(160deg, var(--grad-top) 0%, var(--grad-mid) 55%, var(--grad-bottom) 100%);
             padding: 60px 2rem 64px;
             position: relative;
             overflow: hidden;
@@ -251,8 +254,8 @@
             width: 40px;
             height: 40px;
             border-radius: 10px;
-            background: var(--accent-num-bg);
-            color: var(--accent-num);
+            background: linear-gradient(135deg, var(--grad-mid), var(--grad-bottom));
+            color: #fff;
             font-size: 14px;
             font-weight: 700;
             display: flex;
@@ -264,7 +267,7 @@
         }
 
         .card.open .num-badge {
-            background: var(--blue-hero);
+            background: linear-gradient(135deg, var(--grad-mid), var(--grad-bottom));
             color: #fff;
         }
 
@@ -486,40 +489,26 @@
         }
 
         footer {
-            background: var(--white);
-            border-top: 1px solid var(--border-card);
-            padding: 22px 2rem;
+            background: linear-gradient(135deg, var(--grad-top) 0%, var(--grad-mid) 100%);
+            border-top: none;
+            padding: 36px 2rem;
+            text-align: center;
         }
 
-        .footer-inner {
-            max-width: 860px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
+        footer p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 6px;
         }
 
-        .footer-copy {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            font-size: 12px;
-            color: var(--text-secondary);
+        footer a {
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
         }
 
-        .footer-links a:hover {
-            color: var(--text-primary);
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
         }
 
         a {
@@ -546,11 +535,6 @@
 
             .card-inner {
                 padding-left: 22px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
             }
         }
     </style>
@@ -996,15 +980,8 @@
     </div>
 
     <footer>
-        <div class="footer-inner">
-            <span class="footer-copy">© 2026 Kompact Inc. All rights reserved.</span>
-            <div class="footer-links">
-                <a href="https://npmd0809.github.io/privacy-policy-kompact/">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">Data Processing Agreement</a>
-            </div>
-        </div>
+        <p>© 2026 Kompact Inc. All rights reserved.</p>
+        <p><a href="index.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="support.html">Support</a></p>
     </footer>
 
     <script>

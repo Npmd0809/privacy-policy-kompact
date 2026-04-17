@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support – Kompact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue-dark: #1a237e;
+            --blue-hero: #2d3fd4;
+            --blue-bright: #3f51b5;
+            --white: #ffffff;
+            --text-on-blue: rgba(255, 255, 255, 0.82);
+            --bg-page: #f0f2fb;
+            --bg-card: #ffffff;
+            --border-card: #e2e6f3;
+            --text-primary: #1a1d3a;
+            --text-secondary: #4a5072;
+            --text-muted: #8b90b0;
+            --accent-num: #3f51b5;
+            --accent-num-bg: #e8eaf6;
+            --summary-bg: #f5f6ff;
+            --summary-border: #c5cae9;
+            --highlight-bg: #fffde7;
+            --highlight-border: #f9a825;
+            --table-head: #e8eaf6;
+            --table-stripe: #f5f6ff;
+            --link: #3949ab;
+            --chevron: #9fa8da;
+            --card-hover: #f7f8ff;
+            --grad-top: #0F3298;
+            --grad-mid: #1A54D4;
+            --grad-bottom: #4A8FE8;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-page);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border-card);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 26px;
+        }
+
+        .nav-pill {
+            font-size: 12px;
+            font-weight: 500;
+            border: 1.5px solid #c5cae9;
+            color: var(--blue-bright);
+            padding: 5px 16px;
+            border-radius: 99px;
+        }
+
+        .hero {
+            background: linear-gradient(160deg, var(--grad-top) 0%, var(--grad-mid) 55%, var(--grad-bottom) 100%);
+            padding: 60px 2rem 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.04);
+            top: -40px;
+            right: 160px;
+            transform: rotate(20deg);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.035);
+            bottom: -50px;
+            right: 30px;
+        }
+
+        .hero-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.4rem, 6vw, 3.6rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.08;
+            margin-bottom: 28px;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12.5px;
+            color: var(--text-on-blue);
+        }
+
+        .hero-meta-item svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        .summary-wrap {
+            max-width: 860px;
+            margin: 32px auto;
+            padding: 0 2rem;
+        }
+
+        .summary-box {
+            background: var(--summary-bg);
+            border: 1px solid var(--summary-border);
+            border-radius: 14px;
+            padding: 20px 24px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .summary-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .summary-label {
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .summary-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .layout {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 24px 2rem 40px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 16px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 16px rgba(63, 81, 181, 0.08);
+        }
+
+        .card.open {
+            box-shadow: 0 4px 24px rgba(63, 81, 181, 0.1);
+        }
+
+        .card-trigger {
+            width: 100%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-align: left;
+            transition: background 0.15s;
+        }
+
+        .card-trigger:hover {
+            background: var(--card-hover);
+        }
+
+        .card.open .card-trigger {
+            background: var(--card-hover);
+        }
+
+        .num-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--grad-mid), var(--grad-bottom));
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            letter-spacing: 0.02em;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .card.open .num-badge {
+            background: linear-gradient(135deg, var(--grad-mid), var(--grad-bottom));
+            color: #fff;
+        }
+
+        .card-title {
+            font-size: 0.975rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+            letter-spacing: -0.01em;
+        }
+
+        .chevron {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            color: var(--chevron);
+            transition: transform 0.28s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .card.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .card.open .card-body {
+            max-height: 5000px;
+        }
+
+        .card-inner {
+            padding: 4px 22px 22px 68px;
+            border-top: 1px solid var(--border-card);
+        }
+
+        .card-inner p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 12px 0;
+            line-height: 1.75;
+        }
+
+        .card-inner p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-inner h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 18px 0 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .card-inner ul,
+        .card-inner ol {
+            padding-left: 0;
+            list-style: none;
+            margin: 6px 0 12px;
+        }
+
+        .card-inner li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 3px 0 3px 18px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .card-inner ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #9fa8da;
+        }
+
+        .card-inner ol {
+            counter-reset: oi;
+        }
+
+        .card-inner ol li {
+            counter-increment: oi;
+        }
+
+        .card-inner ol li::before {
+            content: counter(oi) ".";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 10.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border-card);
+            border-radius: 10px;
+            margin: 12px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        thead th {
+            background: var(--table-head);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 10.5px;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-card);
+        }
+
+        tbody tr:nth-child(even) td {
+            background: var(--table-stripe);
+        }
+
+        tbody td {
+            padding: 10px 14px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-card);
+            vertical-align: top;
+            line-height: 1.55;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody td:first-child {
+            font-weight: 500;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .highlight {
+            background: var(--highlight-bg);
+            border-left: 3px solid var(--highlight-border);
+            border-radius: 0 8px 8px 0;
+            padding: 11px 14px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .highlight strong {
+            color: var(--text-primary);
+        }
+
+        .info-box {
+            background: var(--summary-bg);
+            border: 1px solid var(--summary-border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .info-box strong {
+            color: var(--accent-num);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 520px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card {
+            background: var(--summary-bg);
+            border: 1px solid var(--summary-border);
+            border-radius: 10px;
+            padding: 13px 15px;
+        }
+
+        .contact-card .label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+
+        .contact-card .value {
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        .contact-card a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--grad-top) 0%, var(--grad-mid) 100%);
+            border-top: none;
+            padding: 36px 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 6px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        a {
+            color: var(--link);
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 600px) {
+
+            .hero,
+            .summary-wrap,
+            .layout {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            nav {
+                padding: 0 1.25rem;
+            }
+
+            .card-inner {
+                padding-left: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-logo" href="#">
+                <img src="Logo.svg" alt="Kompact" />
+            </a>
+            <span class="nav-pill">Support</span>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">Help & Support</p>
+            <h1>Support Center</h1>
+            <div class="hero-meta">
+                <span class="hero-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>
+                    Last Updated: April 17, 2026
+                </span>
+                <span class="hero-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    Version: 1.0
+                </span>
+                <span class="hero-meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6" />
+                        <line x1="8" y1="12" x2="21" y2="12" />
+                        <line x1="8" y1="18" x2="21" y2="18" />
+                        <line x1="3" y1="6" x2="3.01" y2="6" />
+                        <line x1="3" y1="12" x2="3.01" y2="12" />
+                        <line x1="3" y1="18" x2="3.01" y2="18" />
+                    </svg>
+                    For Kompact Users
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-wrap">
+        <div class="summary-box">
+            <span class="summary-icon">💬</span>
+            <div>
+                <p class="summary-label">Need Help?</p>
+                <p class="summary-text">Find answers to common questions, troubleshooting guides, and contact information for additional support.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="layout">
+
+        <div class="card open" id="c01">
+            <button class="card-trigger" onclick="toggle('c01')">
+                <span class="num-badge">01</span>
+                <span class="card-title">Getting Started</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="card-body">
+                <div class="card-inner">
+                    <p>Welcome to Kompact! This guide will help you get started with our task management and team collaboration platform.</p>
+                    <h3>Creating Your Account</h3>
+                    <p>To begin using Kompact, you'll need to create an account. Visit our website and click "Sign Up" to get started.</p>
+                    <ul>
+                        <li>Provide your email address and create a secure password</li>
+                        <li>Verify your email address</li>
+                        <li>Set up your profile with your name and preferences</li>
+                    </ul>
+                    <h3>Navigating the Interface</h3>
+                    <p>Once logged in, you'll see the main dashboard. Here you can create projects, add tasks, and invite team members.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="c02">
+            <button class="card-trigger" onclick="toggle('c02')">
+                <span class="num-badge">02</span>
+                <span class="card-title">Common Issues & Troubleshooting</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="card-body">
+                <div class="card-inner">
+                    <h3>Login Problems</h3>
+                    <p>If you're having trouble logging in:</p>
+                    <ul>
+                        <li>Check that your email and password are correct</li>
+                        <li>Try resetting your password using the "Forgot Password" link</li>
+                        <li>Clear your browser cache and cookies</li>
+                        <li>Ensure your browser is up to date</li>
+                    </ul>
+                    <h3>Performance Issues</h3>
+                    <p>If Kompact seems slow or unresponsive:</p>
+                    <ul>
+                        <li>Check your internet connection</li>
+                        <li>Close unnecessary browser tabs</li>
+                        <li>Try using a different browser</li>
+                        <li>Clear your browser cache</li>
+                    </ul>
+                    <div class="highlight"><strong>Pro Tip:</strong> For the best experience, use the latest version of Chrome, Firefox, Safari, or Edge.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="c03">
+            <button class="card-trigger" onclick="toggle('c03')">
+                <span class="num-badge">03</span>
+                <span class="card-title">Contact Support</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="card-body">
+                <div class="card-inner">
+                    <p>Can't find what you're looking for? Our support team is here to help!</p>
+                    <h3>Email Support</h3>
+                    <p>For general inquiries and technical support, email us at <a href="mailto:support@kompact.com">support@kompact.com</a>.</p>
+                    <h3>Response Times</h3>
+                    <p>We aim to respond to all support requests within 24 hours during business days.</p>
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="label">Email</div>
+                            <div class="value"><a href="mailto:support@kompact.com">support@kompact.com</a></div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="label">Business Hours</div>
+                            <div class="value">Mon-Fri, 9AM-5PM PST</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="c04">
+            <button class="card-trigger" onclick="toggle('c04')">
+                <span class="num-badge">04</span>
+                <span class="card-title">Frequently Asked Questions</span>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+            <div class="card-body">
+                <div class="card-inner">
+                    <h3>How do I invite team members?</h3>
+                    <p>Go to your project settings and click "Invite Members". Enter their email addresses and they'll receive an invitation.</p>
+                    <h3>Can I export my data?</h3>
+                    <p>Yes, you can export your projects and tasks in CSV or JSON format from the account settings page.</p>
+                    <h3>Is my data secure?</h3>
+                    <p>We use industry-standard encryption and security measures to protect your data. For more details, see our <a href="privacy.html">Privacy Policy</a>.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Kompact Inc. All rights reserved.</p>
+        <p><a href="index.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="support.html">Support</a></p>
+    </footer>
+
+    <script>
+        function toggle(id) {
+            const card = document.getElementById(id);
+            const isOpen = card.classList.contains('open');
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+            if (!isOpen) {
+                card.classList.add('open');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
